@@ -1,12 +1,24 @@
 {
   "name": "fapsock",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "create socket server",
   "main": "build/server.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mprather1/fapsock",
+    "url": "https://github.com/mprather1/fapsock"
   },
+  "scripts": {
+    "build": "babel -D -d build/ src/",
+    "prepublish": "npm run build"
+  },  
   "author": "Michael Prather",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-preset-es2015-node6": "^0.4.0",
+    "babel-preset-latest": "^6.24.0"
+  },
+  "engines": {
+    "node": ">=6"
+  }   
 }
