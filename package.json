@@ -1,0 +1,12 @@
+{
+  "name": "fapsock",
+  "version": "0.0.1",
+  "description": "create socket server",
+  "main": "build/server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mprather1/fapsock",
+  },
+  "author": "Michael Prather",
+  "license": "MIT"
+}
