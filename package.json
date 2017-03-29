@@ -1,6 +1,6 @@
 {
   "name": "fapsock",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "create socket server",
   "main": "build/server.js",
   "repository": {
@@ -10,7 +10,7 @@
   "scripts": {
     "build": "babel -D -d build/ src/",
     "prepublish": "npm run build"
-  },  
+  },
   "author": "Michael Prather",
   "license": "MIT",
   "devDependencies": {
@@ -20,5 +20,8 @@
   },
   "engines": {
     "node": ">=6"
-  }   
+  },
+  "dependencies": {
+    "socket.io": "^1.7.3"
+  }
 }
