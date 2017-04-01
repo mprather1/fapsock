@@ -22,6 +22,6 @@
     "node": ">=6"
   },
   "dependencies": {
-    "json-duplex-stream": "^1.2.0",
+    "json-duplex-stream": "^1.2.0"
   }
 }
