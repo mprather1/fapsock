@@ -19,20 +19,23 @@ function handleConnection (socket, logger) {
   const remoteAddress = socket.remoteAddress + ':' + socket.remotePort
   logger.info('new client connection from %s', remoteAddress)
   
+  socket.setEncoding('utf8')
+  
   socket.on('data', onSocketData)
   socket.on('close', onSocketClose)
   socket.on('errror', onSocketError)
   
   function onSocketData (d) {
     logger.info('connection data from', remoteAddress, d)
-    socket.write(d)
+    socket.write(d.toUpperCase())
   }
   
   function onSocketClose () {
-    logger.info('connection from', remoteAddress, 'closed')
+    logger.warn('connection from', remoteAddress, 'closed')
   }
   
   function onSocketError (err) {
-    logger.info('connection', remoteAddress, 'error:', err.message)
+    logger.error('connection', remoteAddress, 'error:', err.message)
   }
 }
+
