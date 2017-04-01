@@ -22,6 +22,6 @@
     "node": ">=6"
   },
   "dependencies": {
-    "socket.io": "^1.7.3"
+    "json-duplex-stream": "^1.2.0",
   }
 }
