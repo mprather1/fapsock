@@ -1,20 +1,22 @@
-const io = require('socket.io')()
+import net from 'net'
 
 export default function getSocketServer (options) {
-  const {server, logger} = options
+  const {logger} = options
   
-  io.serveClient(false)
-  io.attach(server)
-  
-  io.on('connection', function (socket) {
-    logger.info('client connected...')
-    const message = {
-      data: "connected"
-    }
-    socket.emit('msg', message)
-    socket.on('disconnect', function () {
-      logger.warn('client disconnected...')
+  const server = net.createServer(function (socket) {
+    socket.name = socket.remoteAddress + ':' + socket.remotePort
+    
+    socket.on('end', () => {
+      logger.info('disconnected')
+    })
+    
+    socket.on('connection', () => {
+      logger.info('connected', socket)  
     })
   })
-  return io
+  
+  server.listen(8001, () => {
+    console.log("listening")
+  })
+  return server
 }
