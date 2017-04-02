@@ -1,1 +1,8 @@
 src
+npm-debug.log
+node_modules
+.git
+yarn.lock
+.babelrc
+.git/
+.gitignre
