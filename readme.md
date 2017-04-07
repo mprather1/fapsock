@@ -1,7 +1,5 @@
 # fapsock
 
-v1.0.0
-
 ## Synopsis
 
 Socket client will connect to a socket server running on the specified port.
@@ -20,3 +18,7 @@ Accepts a JavaScript object as an argument:
 	  hostname: process.env.HOSTNAME,
 	  packageName: pkg.name,
 	}
+	
+	<div class="footer">
+    ReadMe v1.0.1
+</div>
