@@ -1,4 +1,4 @@
-# FapSock
+# fapsock
 
 v1.0.0
 
