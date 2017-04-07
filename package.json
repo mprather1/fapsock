@@ -1,7 +1,7 @@
 {
   "name": "fapsock",
-  "version": "0.2.5",
-  "description": "create socket server",
+  "version": "1.0.0",
+  "description": "create socket client",
   "main": "build/fapsock.js",
   "repository": {
     "type": "git",
@@ -20,8 +20,5 @@
   },
   "engines": {
     "node": ">=6"
-  },
-  "dependencies": {
-    "json-duplex-stream": "^1.2.0"
   }
 }
