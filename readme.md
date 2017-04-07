@@ -19,6 +19,6 @@ Accepts a JavaScript object as an argument:
 	  packageName: pkg.name,
 	}
 	
-	<div class="footer">
-    ReadMe v1.0.1
+<div class="footer">
+  ReadMe v1.0.1
 </div>
