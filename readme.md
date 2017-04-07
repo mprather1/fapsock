@@ -20,5 +20,5 @@ Accepts a JavaScript object as an argument:
 	}
 	
 <div class="footer">
-  ReadMe v1.0.1
+  readme v1.0.1
 </div>
