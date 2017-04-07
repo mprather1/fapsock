@@ -1,6 +1,6 @@
 {
   "name": "fapsock",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "create socket client",
   "main": "build/fapsock.js",
   "repository": {

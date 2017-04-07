@@ -5,13 +5,10 @@ import chalk from 'chalk'
 import pkg from '../package.json'
 
 export default function getSocketClient (options) {
-  
   const {socketPort, hostname, packageName, logger} = options
   
   const s = new net.Socket()
-  
   const socket = s.connect(socketPort, hostname)
-  
   const emitter = DuplexEmitter(socket)
 
   socket.on('connect', () => {
@@ -33,12 +30,4 @@ export default function getSocketClient (options) {
   options.emitter = emitter
   
   return options
-}
-
-const options = {
-  socketPort: process.env.SOCKET_PORT,
-  environment: process.env.NODE_ENV || 'development',
-  logger: winston,
-  hostname: process.env.HOSTNAME,
-  packageName: pkg.name,
 }
