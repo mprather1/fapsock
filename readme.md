@@ -10,10 +10,10 @@ Socket client will connect to a socket server running on the specified port.
 
 ## Usage
 
-Accepts a JavaScript object as an argument:
-	
 	import Fapsock from 'fapsock'
 	
+	# Accepts a JavaScript object as an argument:
+
 	const options = {
 	  socketPort: process.env.SOCKET_PORT,
 	  logger: winston,
