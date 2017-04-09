@@ -11,6 +11,7 @@ Socket client will connect to a socket server running on the specified port.
 ## Usage
 
 Accepts a JavaScript object as an argument:
+	
 	import Fapsock from 'fapsock'
 	
 	const options = {
