@@ -11,7 +11,8 @@ Socket client will connect to a socket server running on the specified port.
 ## Usage
 
 Accepts a JavaScript object as an argument:
-
+	import Fapsock from 'fapsock'
+	
 	const options = {
 	  socketPort: process.env.SOCKET_PORT,
 	  logger: winston,
@@ -19,6 +20,22 @@ Accepts a JavaScript object as an argument:
 	  packageName: pkg.name,
 	}
 	
+	const fapsock = new Fapsock(options)
+	
+### Socket
+
+	fapsock.socket.on('connect', () => {
+		console.log('connected')
+	}
+
+### Emitter
+
+	fapsock.emitter.on('connected', () => {
+		console.log('connected')
+	}
+	
+	fapsock.emitter.emit('hello', 'hello')
+	
 <div class="footer">
-  readme v1.0.1
+  readme v1.1.0
 </div>

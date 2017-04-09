@@ -1,18 +1,31 @@
 import net from 'net'
 import DuplexEmitter from 'duplex-emitter'
-import winston from 'winston-color'
 import chalk from 'chalk'
-import pkg from '../package.json'
 
-export default function getSocketClient (options) {
-  const {socketPort, hostname, packageName, logger} = options
+export default class Fapsock {
+  constructor (options) {
+    const {socketPort, hostname} = options
+    
+    const s = new net.Socket()
+    const socket = s.connect(socketPort, hostname)
+    const emitter = DuplexEmitter(socket)
+    
+    configClient(options, socket, emitter)
+    
+    this.socket = socket
+    this.emitter = emitter
+  }
+}
+
+function configClient (options, socket, emitter) {
+  const {packageName, logger} = options
   
-  const s = new net.Socket()
-  const socket = s.connect(socketPort, hostname)
-  const emitter = DuplexEmitter(socket)
-
   socket.on('connect', () => {
     emitter.emit('connected', packageName)
+  })
+  
+  socket.on('error', (err) => {
+    handleError(err, logger)
   })
   
   emitter.on('connected', (data) => {
@@ -22,12 +35,19 @@ export default function getSocketClient (options) {
     })    
   })
   
+  emitter.on('error', (err) => {
+    handleEmitterError(err, logger)
+  })
+  
+  function handleEmitterError (err, logger) {
+    logger.error('error:', err.message)
+  }
+  
   function handleClose (name) {
     logger.info(`connection to ${chalk.bgBlack.green(name)} closed...`)
   }
-  
-  options.socket = socket
-  options.emitter = emitter
-  
-  return options
+}
+
+function handleError (err, logger) {
+  logger.error("error:", err.message)
 }
