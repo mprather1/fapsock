@@ -12,7 +12,7 @@ Socket client will connect to a socket server running on the specified port.
 
 		import Fapsock from 'fapsock'
 	
-# Accepts a JavaScript object as an argument:
+		# Accepts a JavaScript object as an argument:
 
 		const options = {
 		  socketPort: process.env.SOCKET_PORT,
@@ -30,5 +30,5 @@ Socket client will connect to a socket server running on the specified port.
 		fapsock.emit('hello', 'hello')
 	
 <div class="footer">
-  readme v1.3.1
+  readme v1.3.2
 </div>
