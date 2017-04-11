@@ -21,7 +21,7 @@ function configClient (socket, emitter, options) {
     socketConnection(emitter, packageName)
   })
 
-  socket.on('error', (err, reject) => {
+  socket.on('error', (err) => {
     handleError(err, logger)
   })
 }
